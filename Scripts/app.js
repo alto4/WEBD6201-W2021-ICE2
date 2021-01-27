@@ -7,19 +7,18 @@
 "use strict";
 
 // Contact class
-let Contact = /** @class */ (function () {
-    // constructor
-    function Contact(fullName, contactNumber, email) {
-        this.m_fullName = fullName;
-        this.m_contactNumber = contactNumber;
-        this.m_email = email;
-    }
-    // methods
-    Contact.prototype.toString = function () {
-        return "Full Name: " + this.m_fullName + "\nContact Number: " + this.m_contactNumber + "\nEmail Address: " + this.m_email;
-    };
-    return Contact;
-}());
+class Contact {
+  // constructor
+  constructor(fullName, contactNumber, email) {
+      this.m_fullName = fullName;
+      this.m_contactNumber = contactNumber;
+      this.m_email = email;
+  }
+  // methods
+  toString() {
+      return `Full Name:         ${this.m_fullName}\nContact Number:    ${this.m_contactNumber}\nEmail Address:     ${this.m_email}`;
+  }
+}
 
 (function()
 {
