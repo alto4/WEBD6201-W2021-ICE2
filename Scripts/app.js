@@ -6,6 +6,21 @@
 
 "use strict";
 
+// // JSON Sample
+// let myContact = {
+//   "fullName": "Scott Alton",
+//   "contactNumber": "9052425045",
+//   "emailAddress": "scottalton@gmail.com",
+//   "saysHello": function() {
+//     console.log(`Hello from ${this.fullName}`);
+//   },
+//   "nestObject": {
+//     "friendsList": [
+//       "Sally Jones", "Samuel Mime", "Joshua Pinto"
+//     ]
+//   }
+// };
+
 (function () 
 {
   function displayHome() 
