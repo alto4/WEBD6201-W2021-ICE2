@@ -109,8 +109,31 @@
 
 // displayContactList
 function displayContactList()
-{
-  
+{  
+  // Loop through each contact in LocalStorage for display in table
+  if(localStorage.length > 0)
+  {
+    let contactList = document.querySelector("#contactList");
+    let data = "";
+
+    for (let index = 0; index < localStorage.length; index++)
+    {
+      let contactData = localStorage.getItem((index + 1).toString());
+      
+      let contact = new Contact();
+      contact.deserialize(contactData);
+    
+      data += ` 
+        <tr>
+          <th scope="row">${index + 1}</td>  
+          <td>${contact.FullName}</td>
+          <td>${contact.ContactNumber}</td>
+          <td>${contact.Email}</td>
+        </tr>`
+    }
+
+    contactList.innerHTML = data;
+  }
 }
 
   function Start() 
@@ -133,6 +156,7 @@ function displayContactList()
         break;
       case "Contact List":
         displayContactList();
+        break;
       case "Contact":
         displayContact();
         break;
