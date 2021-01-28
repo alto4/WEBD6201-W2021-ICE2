@@ -78,7 +78,7 @@
         fullName.focus();
         fullName.select();
         messageArea.hidden = false;
-        messageArea.className = "alert alert-danger";
+        messageArea.className = "alert alert-danger mx-auto w-50";
         messageArea.textContent = "Please enter an appropriate Name";
       } 
       else 
