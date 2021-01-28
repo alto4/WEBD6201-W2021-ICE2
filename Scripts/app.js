@@ -6,21 +6,6 @@
 
 "use strict";
 
-// // JSON Sample
-// let myContact = {
-//   "fullName": "Scott Alton",
-//   "contactNumber": "9052425045",
-//   "emailAddress": "scottalton@gmail.com",
-//   "saysHello": function() {
-//     console.log(`Hello from ${this.fullName}`);
-//   },
-//   "nestObject": {
-//     "friendsList": [
-//       "Sally Jones", "Samuel Mime", "Joshua Pinto"
-//     ]
-//   }
-// };
-
 (function () 
 {
   function displayHome() 
@@ -106,7 +91,7 @@
     let sendButton = document.getElementById("sendButton");
     sendButton.addEventListener("click", function (event) 
     {
-      event.preventDefault();
+      //event.preventDefault();
 
       // Create new contact
       let contact = new Contact(
@@ -115,9 +100,18 @@
         emailAddress.value
       );
 
-      console.log(contact.toString());
+      if(contact.serialize())
+      {
+        localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
+      }
     });
   }
+
+// displayContactList
+function displayContactList()
+{
+  
+}
 
   function Start() 
   {
@@ -137,6 +131,8 @@
       case "Services":
         displayServices();
         break;
+      case "Contact List":
+        displayContactList();
       case "Contact":
         displayContact();
         break;

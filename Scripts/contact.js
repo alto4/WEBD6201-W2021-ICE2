@@ -9,40 +9,40 @@ class Contact {
    * @param {string} email 
    */
   constructor(fullName = '', contactNumber = '', email = '') {
-    this.m_fullName = fullName;
-    this.m_contactNumber = contactNumber;
-    this.m_email = email;
+    this.FullName = fullName;
+    this.ContactNumber = contactNumber;
+    this.Email = email;
   }
 
   // Accessor and mutators
   get FullName() 
   {
-    return this.m_fullName;
+    return this.fullName;
   }
   set FullName(value) 
   {
-    this.m_fullName = value;
+    this.fullName = value;
   }
   get ContactNumber() 
   {
-    return this.m_contactNumber;
+    return this.contactNumber;
   }
   set ContactNumber(value) {
-    this.m_contactNumber = value;
+    this.contactNumber = value;
   }
   get Email() 
   {
-    return this.m_email;
+    return this.email;
   }
   set Email(value) 
   {
-    this.m_email = value;
+    this.email = value;
   }
 
   // Methods - handle localStorage data
   toString() 
   {
-    return `Full Name:         ${this.m_fullName}\nContact Number:    ${this.m_contactNumber}\nEmail Address:     ${this.m_email}`;
+    return `Full Name:         ${this.FullName}\nContact Number:    ${this.ContactNumber}\nEmail Address:     ${this.Email}`;
   }
 
   /**
@@ -53,9 +53,9 @@ class Contact {
   toJSON()
   {
     return {
-      "fullName": this.fullName,
-      "contactNumber": this.contactNumber,
-      "email": this.email
+      "fullName": this.FullName,
+      "contactNumber": this.ContactNumber,
+      "email": this.Email
     }
   }
 
@@ -66,7 +66,15 @@ class Contact {
    */
   serialize() 
   {
-    return `${this.m_fullName},${this.m_contactNumber},${this.m_email}`;    
+
+    if(this.FullName !== "" && this.ContactNumber !== "" && this.Email !== "")
+    { 
+      return `${this.FullName},${this.ContactNumber},${this.Email}`;    
+    }
+    else {
+      console.error("One or more fields in the contact form are empty.");
+      return null;
+    }
   }
 
   /**
